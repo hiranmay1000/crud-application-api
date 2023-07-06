@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const mongoose = require('./database/mydatabase');
 
+const mongoose = require('./database/mydatabase');
 const RegisterUser = require('./api/routes/register');
 const UserDatabase = require('./api/routes/userdatabase');
 const Login = require('./api/routes/login');
