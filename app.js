@@ -23,7 +23,7 @@ app.use('/user-database', UserDatabase);
 app.use('/login', Login);
 app.use('/admin-login', AdminLogin);
 app.use('/edit-user', EditUser);
-app.use('/delete-user/:_id', DeleteUser);
+app.use('/delete-user', DeleteUser);
 app.use('/test', TestFile);
 
 

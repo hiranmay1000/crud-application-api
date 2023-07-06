@@ -3,7 +3,7 @@ const router = express();
 const User = require('../models/user.database');
 
 
-router.delete('/', async (req, res) => {
+router.delete('/:_id', async (req, res) => {
     try {
         let _id = req.params._id;
 
@@ -13,8 +13,7 @@ router.delete('/', async (req, res) => {
 
     } catch (error) {
         console.log("An erro occured while deleting user");
-        res.status(500).json({ message: 'Error deleting user' });
-
+        res.status(500).json({ message: 'Error deleting user' })
     }
 });
 
