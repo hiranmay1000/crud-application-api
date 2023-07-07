@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer')
-const bcrypt = require('bcrypt');
-const User = require('../models/user.database');
+const bcrypt = require('bcryptjs');
+const User = require('../models/model.user');
 
 
 const storage = multer.diskStorage({
@@ -30,8 +30,10 @@ router.post('/', upload.single('image'), async (req, res) => {
 
             user.name = req.body.name;
             user.username = req.body.username;
-            const salt = await bcrypt.genSalt(5);
-            const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+            // Generate hashed password
+            const saltRounds = 10;
+            const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
             user.password = hashedPassword;
             user.image = req.body.image;
 
